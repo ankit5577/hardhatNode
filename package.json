@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "hardhat node for RPC",
   "main": "index.js",
+  "engines": {
+    "node": "^16"
+  },
   "scripts": {
     "start": "npx hardhat run start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
