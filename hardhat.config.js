@@ -1,25 +1,26 @@
-const { spawn } = require('child_process');
+require("@nomicfoundation/hardhat-toolbox");
 
-async function runHardhatNodeWithCustomPort(customPort) {
-  const child = spawn('npx', ['hardhat', 'node', `--port ${customPort}`]);
-
-  child.stdout.on('data', (data) => {
-    console.log(`Hardhat Node Output: ${data}`);
-  });
-
-  child.stderr.on('data', (data) => {
-    console.error(`Error: ${data}`);
-  });
-
-  child.on('close', (code) => {
-    console.log(`Hardhat Node exited with code ${code}`);
-  });
-
-  // Handle any cleanup or additional actions here
-
-  return child;
-}
-
-const customPort = process.env.PORT || 2222; // Default to port 8545 if not specified
-
-runHardhatNodeWithCustomPort(customPort);
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  solidity: "0.8.19",
+  networks: {
+    hardhat: {
+      chainId: 137,
+      allowUnlimitedContractSize: true,
+      forking: {
+        url: "https://polygon.llamarpc.com",
+      },
+      live: true,
+      mining: { auto: true },
+      loggingEnabled: true,
+      // accounts: {
+      //   mnemonic: process.env.MNEMONICS,
+      //   path: "m/44'/60'/0'/0",
+      //   initialIndex: 0,
+      //   count: 10,
+      //   passphrase: "",
+      //   accountsBalance: "10000000000000000000000",
+      // },
+    }
+  },
+};
