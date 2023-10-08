@@ -1,8 +1,8 @@
 const { exec } = require('child_process');
 
-const customPort = process.env.PORT || 2222; // Default to port 8545 if not specified
+const customPort = 3000;
 
-const command = `npx hardhat node --port ${customPort}`;
+const command = `npx hardhat node --host 0.0.0.0 --port ${customPort}`;
 
 const child = exec(command);
 
