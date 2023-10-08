@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 
 const customPort = 3000;
 
-const command = `npx hardhat node --host 0.0.0.0 --port ${customPort}`;
+const command = `npx hardhat node --hostname 0.0.0.0 --port ${customPort}`;
 
 const child = exec(command);
 
