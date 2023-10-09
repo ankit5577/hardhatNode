@@ -5,7 +5,7 @@ module.exports = {
   solidity: "0.8.19",
   networks: {
     hardhat: {
-      chainId: 137,
+      chainId: 5577,
       allowUnlimitedContractSize: true,
       forking: {
         url: "https://polygon.llamarpc.com",
